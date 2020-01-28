@@ -39,16 +39,19 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  # A, E, I, O, U
-  if /[aeiou]/i.match(s[0])
-    false
+  if /^[[:alpha:]]+$/.match(s)
+    !!!(/[aeiou]/i =~ s[0])
   else
-    true
+    false
   end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if /^[10]+$/.match(s)
+    s.to_i(2) % 4 == 0
+  else
+    false
+  end
 end
 
 # Part 3
